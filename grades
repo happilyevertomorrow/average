@@ -1,0 +1,118 @@
+//Program by: Joanna Riascos
+///       
+//
+
+#include <iostream>
+#include <iomanip>
+#include <string>
+using namespace std;
+
+
+#define _USE_MATH_DEFINES
+#include <math.h>
+
+void compute (double average1, double average2, double average3, double & averagegrade, int exam1, int exam2, int exam3, int final, double & classaverage, int & count);
+void printdata (string ssnumber, double average1, double average2, double average3, double & averagegrade);
+double computeclass (double classaverage, int count);
+
+int main()
+
+{
+	system ("Color 70");
+
+//Initialize integers to zero:
+//
+
+	
+
+	string ssnumber;
+	int exam1, exam2, exam3, final, count = 1;
+	double average1 = 0, average2 = 0, average3 = 0;
+	double classaverage = 0, averagegrade;
+	
+
+	
+	cout<<setw(15)<<"SS"<<setw(15)<<"Exam"<<setw(15)<<"Exam"<<setw(15)<<"Exam"<<setw(15)<<"Final"<<endl;
+	cout<<setw(15)<<"Number"<<setw(15)<<"1"<<setw(15)<<"2"<<setw(15)<<"3"<<setw(15)<<"Exam"<<endl;
+	cout<<endl;
+
+		
+//Use a while loop to display the the first, second, third, and final exam:
+///
+	
+
+	while (count <=3)
+
+	{
+
+
+cout <<"Welcome, let's get started!";
+
+
+cout <<"Please enter your SS Number:";
+
+cin >>ssnumber;
+
+cout <<"Please enter your first exam grade:";
+
+cin >>exam1;
+
+cout <<"Please enter your second exam grade:";
+
+cin >>exam2;
+
+cout <<"Please enter your third exam grade:";
+
+cin >>exam3;
+
+cout <<"Please enter your final exam grade:";
+
+cin >>final;
+
+
+compute ( average1,  average2, average3,  averagegrade,  exam1, exam2,  exam3,  final,  classaverage,  count);
+
+printdata (ssnumber, average1, average2, average3, averagegrade);
+
+
+}
+
+double averageclass;
+
+averageclass = computeclass (classaverage, count); 
+
+cout<<endl;
+cout<<setw(60)<<classaverage<<endl;
+cout<<setw(60)<<averageclass<<endl;
+
+return 0;
+
+}
+
+/*Equation to compute the average grade for the students.
+And use an else if statement.*/
+
+double computeclass (double classaverage, int count)
+{
+	return classaverage / count;
+
+}
+void compute (double average1, double average2, double average3,  double & averagegrade, int exam1, int exam2, int exam3, int final, double & classaverage, int & count)
+{
+
+averagegrade = (exam1 + exam2+ exam3 + final*2) / 5.0;
+classaverage = (average1 + average2 + average3) / 3.0;
+count = count + 1;
+ 
+cout<<setw(10)<<"The Average = "<<averagegrade<<endl;	
+cout <<"The class average grade is:";
+cout<<setw(10)<<classaverage<<endl<<endl;
+
+}
+
+void printdata (string ssnumber, double average1, double average2, double average3, double & averagegrade)
+{
+
+cout<<setw(15)<<ssnumber<<setw(15)<<average1<<setw(15)<<average2<<setw(15)<<average3<<setw(15)<<averagegrade<<endl<<endl;
+
+}
